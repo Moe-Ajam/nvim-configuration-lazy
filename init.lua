@@ -66,7 +66,7 @@ vim.opt.splitbelow = true
 vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
@@ -242,7 +242,7 @@ require('lazy').setup {
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      -- { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -431,17 +431,17 @@ require('lazy').setup {
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.server_capabilities.documentHighlightProvider then
-            -- local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
-            -- vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-            --   buffer = event.buf,
-            --   group = highlight_augroup,
-            --   callback = vim.lsp.buf.document_highlight,
-            -- })
-            -- vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-            --   buffer = event.buf,
-            --   group = highlight_augroup,
-            --   callback = vim.lsp.buf.clear_references,
-            -- })
+            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
+            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+              buffer = event.buf,
+              group = highlight_augroup,
+              callback = vim.lsp.buf.document_highlight,
+            })
+            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+              buffer = event.buf,
+              group = highlight_augroup,
+              callback = vim.lsp.buf.clear_references,
+            })
 
             vim.api.nvim_create_autocmd('LspDetach', {
               group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
@@ -732,7 +732,7 @@ require('lazy').setup {
       --  and try some other statusline plugin
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = false }
+      statusline.setup { use_icons = true }
 
       -- You can configure sections in the statusline by overriding their
       -- default behavior. For example, here we set the section for
@@ -752,7 +752,7 @@ require('lazy').setup {
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'go', 'rust', 'javascript', 'typescript' },
       -- Autoinstall languages that are not installed
-      auto_install = false,
+      auto_install = true,
       highlight = {
         enable = true,
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
