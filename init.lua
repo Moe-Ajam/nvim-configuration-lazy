@@ -31,6 +31,7 @@ vim.opt.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 -- vim.opt.clipboard = 'unnamedplus'
+vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 
 -- Enable break indent
 vim.opt.breakindent = true
