@@ -18,7 +18,7 @@ return {
     workspaces = {
       {
         name = 'Main Synced Vault',
-        path = '~/Documents/Main Synced Vault/',
+        path = '/Users/mahmoudajam/Documents',
       },
     },
     -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
@@ -48,11 +48,11 @@ return {
     },
 
     -- Optional, for templates (see below).
-    templates = {
-      folder = 'templates',
-      date_format = '%Y-%m-%d',
-      time_format = '%H:%M:%S',
-    },
+    -- templates = {
+    --   folder = 'templates',
+    --   date_format = '%Y-%m-%d',
+    --   time_format = '%H:%M:%S',
+    -- },
 
     ui = {
       -- Disable some things below here because I set these manually for all Markdown files using treesitter
@@ -60,6 +60,7 @@ return {
       bullets = {},
     },
   },
+  disable_formatter = true,
   config = function()
     vim.opt.conceallevel = 1
   end,

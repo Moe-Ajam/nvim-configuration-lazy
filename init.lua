@@ -258,6 +258,7 @@ require('lazy').setup {
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-telescope/telescope-symbols.nvim' },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -296,6 +297,18 @@ require('lazy').setup {
         --     require('telescope.themes').get_dropdown(),
         --   },
         -- },
+        defaults = {
+          layout_strategy = 'vertical',
+          layout_config = {
+            preview_height = 0.7,
+            vertical = {
+              size = {
+                width = '95%',
+                height = '95%',
+              },
+            },
+          },
+        },
       }
 
       -- Enable Telescope extensions if they are installed
@@ -497,8 +510,8 @@ require('lazy').setup {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
+        gopls = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -506,8 +519,7 @@ require('lazy').setup {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
-        --
+        tsserver = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -636,6 +648,9 @@ require('lazy').setup {
       luasnip.config.setup {}
 
       cmp.setup {
+        view = {
+          entries = 'native',
+        },
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -698,7 +713,8 @@ require('lazy').setup {
         sources = {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-          { name = 'path' },
+          { name = 'neorg' },
+          -- { name = 'path' },
         },
       }
     end,
@@ -765,7 +781,24 @@ require('lazy').setup {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'go', 'rust', 'javascript', 'typescript' },
+      ensure_installed = {
+        'markdown_inline',
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'vim',
+        'vimdoc',
+        'go',
+        'rust',
+        'javascript',
+        'typescript',
+        'vimdoc',
+        'sql',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -773,9 +806,9 @@ require('lazy').setup {
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
+        additional_vim_regex_highlighting = false,
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true },
     },
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -805,7 +838,7 @@ require('lazy').setup {
   --
   require 'kickstart.plugins.debug',
   --require 'kickstart.plugins.indent_line',
-  require 'kickstart.plugins.lint',
+  --require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
