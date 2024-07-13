@@ -101,6 +101,23 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- filetree keymaps
 vim.keymap.set('n', '<leader>e', ':NvimTreeFindFileToggle<cr>')
 
+-- Obsidian Plugin
+-- navigate to vault
+vim.keymap.set('n', '<leader>oo', ':cd /Users/mahmoudajam/Documents/Main\\ Synced\\ Vault<cr>')
+-- convert note to template and remove leading white space
+vim.keymap.set('n', '<leader>on', ':ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>')
+-- strip date from note title and replace dashes with spaces
+-- must have cursor on title
+vim.keymap.set('n', '<leader>of', ':s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>')
+
+-- for review workflow
+-- move file in current buffer to zettelkasten folder
+vim.keymap.set('n', '<leader>ok', ":!mv '%:p' /Users/mahmoudajam/Documents/Main\\ Synced\\ Vault<cr>:bd<cr>")
+
+vim.keymap.set('n', '<leader>ok', ":!mv '%:p' /Users/mahmoudajam/Documents/Main\\ Synced\\ Vault/zettelkasten<cr>:bd<cr>")
+-- delete file in current buffer
+vim.keymap.set('n', '<leader>odd', ":!rm '%:p'<cr>:bd<cr>")
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
