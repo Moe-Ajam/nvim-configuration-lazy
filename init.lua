@@ -7,6 +7,8 @@ vim.keymap.set('n', '<leader>fs', vim.cmd.Ex)
 
 vim.opt.guicursor = 'n-v-i-c:block'
 
+vim.opt.conceallevel = 2
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
@@ -640,6 +642,8 @@ require('lazy').setup {
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'epwalsh/obsidian.nvim',
+      'hrsh7th/cmp-buffer',
     },
     config = function()
       -- See `:help cmp`
@@ -714,6 +718,8 @@ require('lazy').setup {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'neorg' },
+          { name = 'buffer' },
+          { name = 'obsidian' },
           -- { name = 'path' },
         },
       }
@@ -791,7 +797,7 @@ require('lazy').setup {
         'luadoc',
         'markdown',
         'vim',
-        'vimdoc',
+        'regex',
         'go',
         'rust',
         'javascript',
