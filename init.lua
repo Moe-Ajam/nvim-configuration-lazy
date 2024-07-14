@@ -7,16 +7,18 @@ vim.keymap.set('n', '<leader>fs', vim.cmd.Ex)
 
 vim.opt.guicursor = 'n-v-i-c:block'
 
+vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<cr>')
+
 -- Show more UI elements in md files - options: 0, 1, 2 where 2 is the most visual
 vim.opt.conceallevel = 2
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- bufferline keymaps
-vim.keymap.set('n', '<leader>n', ':bn<cr>')
-vim.keymap.set('n', '<leader>p', ':bp<cr>')
-vim.keymap.set('n', '<leader>x', ':bd<cr>')
+-- vim.keymap.set('n', '<leader>n', ':bn<cr>')
+-- vim.keymap.set('n', '<leader>p', ':bp<cr>')
+-- vim.keymap.set('n', '<leader>x', ':bd<cr>')
 
 -- markdown preview
 vim.keymap.set('n', '<leader>mp', ':MarkdownPreviewToggle<cr>')
