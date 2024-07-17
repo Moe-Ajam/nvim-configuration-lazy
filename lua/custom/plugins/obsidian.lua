@@ -10,11 +10,11 @@ return {
   opts = {
     workspaces = {
       {
-        name = 'Main Synced Vault',
-        path = '/Users/mahmoudajam/Documents/Main Synced Vault',
+        name = 'Personal',
+        path = '/Users/mahmoudajam/Documents/Personal',
       },
     },
-    notes_subdir = '0 - Inbox',
+    notes_subdir = '1_Inbox',
     new_notes_location = 'notes_subdir',
     completion = {
       nvim_cmp = true,
