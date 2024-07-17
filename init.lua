@@ -111,7 +111,8 @@ vim.keymap.set('n', '<leader>oo', ':cd /Users/mahmoudajam/Documents/Personal<cr>
 vim.keymap.set('n', '<leader>on', ':ObsidianTemplate Note Template<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>')
 -- strip date from note title and replace dashes with spaces
 -- must have cursor on title
-vim.keymap.set('n', '<leader>of', ':s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>')
+-- vim.keymap.set('n', '<leader>of', ':s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>')
+vim.keymap.set('n', '<leader>of', ':s/\\(# \\)[^_]*_/\\1/ | s/-/ /g | s/\\v<(.)(\\w*)>/\\u\\1\\L\\2/g<cr>')
 
 -- for review workflow
 -- move file in current buffer to zettelkasten folder
@@ -578,7 +579,7 @@ require('lazy').setup {
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
+        local disable_filetypes = { c = true, cpp = true, markdown = true }
         return {
           timeout_ms = 500,
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
