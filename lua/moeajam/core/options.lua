@@ -53,8 +53,8 @@ opt.conceallevel = 2
 opt.showmode = false
 
 -- enable spell check
-opt.spelllang = "en"
-opt.spell = true
+-- opt.spelllang = "en"
+-- opt.spell = true
 
 -- save undo history
 opt.undofile = true

@@ -1,24 +1,45 @@
 return {
-	"rose-pine/neovim",
-	priority = 1000,
-	config = function()
-		require("rose-pine").setup({
-			variant = "auto", -- auto, main, moon, or dawn
-			dark_variant = "moon", -- main, moon, or dawn
-			dim_inactive_windows = false,
-			extend_background_behind_borders = true,
-			enable = {
-				terminal = true,
-				legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-				migrations = true, -- Handle deprecated options automatically
-			},
-			styles = {
-				bold = false,
-				italic = false,
-			},
-		})
-		-- remove the empty lines indicator
-		vim.opt.fillchars = { eob = " " }
-		vim.cmd("colorscheme rose-pine")
-	end,
+	-- rose-pine configuration
+	{
+		"rose-pine/neovim",
+		priority = 1000,
+		config = function()
+			require("rose-pine").setup({
+				variant = "auto", -- auto, main, moon, or dawn
+				dark_variant = "moon", -- main, moon, or dawn
+				dim_inactive_windows = false,
+				extend_background_behind_borders = true,
+				enable = {
+					terminal = true,
+					legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+					migrations = true, -- Handle deprecated options automatically
+				},
+				styles = {
+					bold = false,
+					italic = false,
+				},
+			})
+			vim.opt.fillchars = { eob = " " }
+			-- vim.cmd("colorscheme rose-pine")
+		end,
+	},
+	{
+		-- Onedark configuration
+		"navarasu/onedark.nvim",
+		priority = 1001, -- Higher priority than rose-pine to make this the default
+		config = function()
+			require("onedark").setup({
+				style = "darker", -- Options: 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'
+				term_colors = true,
+				ending_tildes = false, -- Remove ~ on unused lines
+				styles = {
+					comments = "none",
+					functions = "bold",
+					keywords = "bold",
+					variables = "bold",
+				},
+			})
+			vim.cmd("colorscheme onedark")
+		end,
+	},
 }
