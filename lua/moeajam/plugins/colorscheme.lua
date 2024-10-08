@@ -39,7 +39,27 @@ return {
 					variables = "bold",
 				},
 			})
-			vim.cmd("colorscheme onedark")
+			-- vim.cmd("colorscheme onedark")
+		end,
+	},
+	-- Tokyonight colorscheme configuration
+	{
+		"folke/tokyonight.nvim",
+		priority = 1002, -- Adjust priority so that it loads in the order you want
+		config = function()
+			require("tokyonight").setup({
+				style = "night", -- Choose between 'storm', 'night', 'moon', or 'day'
+				transparent = false, -- Enable or disable the background transparency
+				terminal_colors = true, -- Apply the colorscheme to the terminal
+				styles = {
+					comments = { italic = true },
+					keywords = { italic = false },
+					functions = { bold = true },
+					variables = { bold = true },
+				},
+			})
+			-- Set Tokyonight as the colorscheme
+			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 }
