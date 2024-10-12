@@ -20,7 +20,7 @@ return {
 				},
 			})
 			vim.opt.fillchars = { eob = " " }
-			-- vim.cmd("colorscheme rose-pine")
+			vim.cmd("colorscheme rose-pine")
 		end,
 	},
 	{
@@ -59,7 +59,7 @@ return {
 				},
 			})
 			-- Set Tokyonight as the colorscheme
-			vim.cmd("colorscheme tokyonight")
+			-- vim.cmd("colorscheme tokyonight")
 		end,
 	},
 }
