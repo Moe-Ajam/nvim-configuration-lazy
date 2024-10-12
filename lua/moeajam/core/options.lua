@@ -1,7 +1,9 @@
 local opt = vim.opt
 
+vim.opt.guicursor = ""
+
 -- cursor as a block
-opt.guicursor = "n-v-i-c:block"
+-- opt.guicursor = "n-v-i-c:block"
 
 opt.relativenumber = true
 opt.number = true
