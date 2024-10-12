@@ -47,7 +47,7 @@ return {
 				"black", -- python formatter
 				"gofumpt", -- go formatter
 				"pylint", -- python linter
-				"eslint_d", -- js linter
+				-- "eslint_d", -- js linter
 				"sql-formatter",
 			},
 		})

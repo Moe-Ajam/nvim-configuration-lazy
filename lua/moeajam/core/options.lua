@@ -47,7 +47,7 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 -- show more UI elements in md files - options: 0, 1, 2 where 2 is the most visual
-opt.conceallevel = 2
+opt.conceallevel = 0
 
 -- don't show the mode, since it's already in the status line
 opt.showmode = false

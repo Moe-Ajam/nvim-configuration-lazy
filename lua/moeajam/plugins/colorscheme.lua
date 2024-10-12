@@ -52,10 +52,10 @@ return {
 				transparent = false, -- Enable or disable the background transparency
 				terminal_colors = true, -- Apply the colorscheme to the terminal
 				styles = {
-					comments = { italic = true },
+					comments = { italic = false },
 					keywords = { italic = false },
-					functions = { bold = true },
-					variables = { bold = true },
+					functions = { bold = false },
+					variables = { bold = false },
 				},
 			})
 			-- Set Tokyonight as the colorscheme
