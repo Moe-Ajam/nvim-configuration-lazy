@@ -37,6 +37,7 @@ return {
 				"prismals",
 				"pyright",
 				"gopls",
+				"jdtls",
 			},
 		})
 		mason_tool_installer.setup({
